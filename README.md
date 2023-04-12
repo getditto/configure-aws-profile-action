@@ -3,7 +3,7 @@ This action uses the official `aws-actions/configure-aws-credentials@v2` action.
 
 The official action is not sufficient for multiple account usage as it can only set one set of AWS environment variables at a time.
 
-> The primary reason this action exists is to address using multiple profiles at the same time. Region defaults to `us-west-2`.
+> The primary reason this action exists is to address using multiple profiles at the same time. Region defaults to `us-east-1`.
 
 # Usage
 ```yaml
@@ -14,12 +14,13 @@ jobs:
     - name: Checkout Repo
       uses: actions/checkout@v3
 
-    - uses: mcblair/configure-aws-profile-action@v0.1.1
+    - uses: getditto/configure-aws-profile-action@main
       with:
         role-arn: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
         profile-name: test
+        role-session-name: my-session-tag
 
-    - uses: mcblair/configure-aws-profile-action@v0.1.1
+    - uses: getditto/configure-aws-profile-action@main
       with:
         role-arn: arn:aws:iam::<ACCOUNT_ID>:role/<ROLE_NAME>
         profile-name: production

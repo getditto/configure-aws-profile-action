@@ -16,7 +16,11 @@ inputs:
   region:
     required: false
     description: 'Name of AWS region to be used.'
-    default: 'us-west-2'
+    default: 'us-east-1'
+  role-session-name:
+    required: false
+    description: 'Role session name (default: GitHubActions)'
+    default: 'GitHubActions'
 
 runs:
   using: "composite"
@@ -27,6 +31,7 @@ runs:
       role-to-assume: ${{ inputs.role-arn }}
       aws-region: ${{ inputs.region }}
       mask-aws-account-id: 'no'
+      role-session-name: ${{ inputs.role-session-name }}
 
   - name: Setup Profile
     shell: bash
