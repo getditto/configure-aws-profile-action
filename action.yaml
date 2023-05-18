@@ -24,6 +24,7 @@ inputs:
   role-duration-seconds:
     required: false
     description: "Role duration in seconds (default: 6 hours, 1 hour for OIDC/specified aws-session-token)"
+    default: '3600'
 
 runs:
   using: "composite"
