@@ -21,6 +21,10 @@ inputs:
     required: false
     description: 'Role session name (default: GitHubActions)'
     default: 'GitHubActions'
+  role-dutation-seconds:
+    required: false
+    description: 'Credential Lifetime can not exceed the max role session duration (default: 3600)'
+    default: '3600'
 
 runs:
   using: "composite"
@@ -32,6 +36,7 @@ runs:
       aws-region: ${{ inputs.region }}
       mask-aws-account-id: 'no'
       role-session-name: ${{ inputs.role-session-name }}
+      role-duration-seconds: ${{ inputes.role-dutation-seconds }}
 
   - name: Setup Profile
     shell: bash
