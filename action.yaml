@@ -30,8 +30,8 @@ runs:
   using: "composite"
   steps:
   - name: Configure AWS Credentials
-    # CURRENTLY CHANGING THIS BREAKS THINGS!!!!
-    uses: aws-actions/configure-aws-credentials@v3
+    # CURRENTLY CHANGING THIS BREAKS THINGS IN CLOUD INFRA LEGACY!!!
+    uses: aws-actions/configure-aws-credentials@v2
     with:
       role-to-assume: ${{ inputs.role-arn }}
       aws-region: ${{ inputs.region }}
