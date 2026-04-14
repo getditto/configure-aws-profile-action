@@ -34,7 +34,7 @@ runs:
     with:
       role-to-assume: ${{ inputs.role-arn }}
       aws-region: ${{ inputs.region }}
-      mask-aws-account-id: 'no'
+      mask-aws-account-id: 'false'
       role-session-name: ${{ inputs.role-session-name }}
       role-duration-seconds: ${{ inputs.role-duration-seconds }}
 
